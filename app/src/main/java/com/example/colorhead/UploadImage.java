@@ -1,12 +1,14 @@
 package com.example.colorhead;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-class UploadImage extends Activity {
+public class UploadImage extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.upload_image);
+        setContentView(R.layout.activity_upload_image);
     }
 }

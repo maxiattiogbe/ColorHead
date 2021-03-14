@@ -1,12 +1,14 @@
 package com.example.colorhead;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-class Instructions extends Activity {
+public class Instructions extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.instructions);
+        setContentView(R.layout.activity_instructions);
     }
 }
