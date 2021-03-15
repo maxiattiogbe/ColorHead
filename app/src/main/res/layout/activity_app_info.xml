@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".AppInfo">
 
+    <include
+        android:id="@+id/toolbarWhite"
+        layout="@layout/white_toolbar"
+        />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

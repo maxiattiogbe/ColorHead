@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbarBlack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#000000"
@@ -40,7 +40,7 @@
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                app:layout_constraintTop_toBottomOf="@+id/toolbarBlack" />
 
             <LinearLayout
                 android:id="@+id/instructionsLine"
