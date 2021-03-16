@@ -28,14 +28,11 @@
                     android:id="@+id/toolbarWhite"
                     layout="@layout/white_toolbar" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp" />
-
                 <TextView
                     android:id="@+id/helpTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/red"
                     android:text="@string/instructionsStr"
                     android:textAlignment="center"
                     android:textColor="#000000"
@@ -50,11 +47,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-
-                    <Space
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/helpInaccurateEstimateText"

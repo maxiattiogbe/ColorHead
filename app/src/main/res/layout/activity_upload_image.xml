@@ -22,18 +22,16 @@
                 android:id="@+id/toolbarWhite"
                 layout="@layout/white_toolbar" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <TextView
                 android:id="@+id/uploadImageTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/green"
                 android:text="@string/uploadImageStr"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
@@ -98,73 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/goButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/green"
-                    android:onClick="go"
-                    android:text="@string/goStr"
-                    android:textColor="@color/black" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
             </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
-
-            <TextView
-                android:id="@+id/colorTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
-
-            <TextView
-                android:id="@+id/redTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/newModel_Red_Str" />
-
-            <EditText
-                android:id="@+id/redIntensityText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/greenTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/newModel_Green_Str" />
-
-            <EditText
-                android:id="@+id/greenIntensityText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/blueTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/newModel_Blue_Str" />
-
-            <EditText
-                android:id="@+id/blueIntensityText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
 
             <Space
                 android:layout_width="match_parent"

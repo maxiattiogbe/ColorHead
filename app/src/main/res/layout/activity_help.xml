@@ -24,18 +24,16 @@
                     layout="@layout/white_toolbar"
                     />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp" />
-
                 <TextView
                     android:id="@+id/helpTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/blue"
                     android:text="@string/helpStr"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <Space
                     android:layout_width="match_parent"

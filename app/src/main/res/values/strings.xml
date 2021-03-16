@@ -3,6 +3,7 @@
     <string name="welcomeStr">Welcome!</string>
     <string name="welcomeBackStr">Welcome back!</string>
     <string name="welcomeScreenStr_0">Please click on the appropriate button below.</string>
+    <string name="colorHeadLogoDescriptionStr">ColorHead logo</string>
 
     <string name="newUserStr">New User</string>
     <string name="returningUserStr">Returning User</string>
@@ -70,10 +71,10 @@
     <string name="camera_See_Str">Once Color has access to your phone camera you should see your camera view here. </string>
 
     <!-- Upload Image -->
-    <string name="upload_Before_Str">Before uploading an image, please crop it so the sensor or
-        indicator color fills as much of the image as possible. Then, please click the button below that says upload
-        to upload the image. </string>
-    <string name="upload_See_Image_Str">Once your image is properply uploaded, it should appear here.</string>
+    <string name="upload_Before_Str">Click the Upload button below to choose an image to upload.
+        Once your image is properly uploaded, it should appear below. Press your finger down on the image on the
+        colored region of interest to obtain a corresponding reading estimate.</string>
+    <string name="upload_See_Image_Str">Once your image is properly uploaded, it should appear here.</string>
     <string name="uploadStr">Upload</string>
     <string name="goStr">Go</string>
     <string name="resultsTitleStr">Results</string>
