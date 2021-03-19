@@ -20,7 +20,7 @@
 
     <string name="instructionsStr">Instructions</string>
     <string name="modelStatsStr">Model Statistics</string>
-    <string name="modelsStr">Models</string>
+    <string name="modelSearchStr">Search</string>
     <string name="newModelStr">New Model</string>
     <string name="settingsStr">Settings</string>
     <string name="uploadImageStr">Upload Image</string>
