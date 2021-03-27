@@ -10,7 +10,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-   public CardView instructionsCardView, uploadImageCardView, helpCardView, appInfoCardView;
+   public CardView instructionsCardView, newModelCardView, modelSearchCardView, uploadImageCardView,
+           helpCardView, appInfoCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +19,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         instructionsCardView = (CardView) findViewById(R.id.instructionsCardView);
+        newModelCardView = (CardView) findViewById(R.id.newModelCardView);
+        modelSearchCardView = (CardView) findViewById(R.id.modelSearchCardView);
         uploadImageCardView = (CardView) findViewById(R.id.uploadImageCardView);
         helpCardView = (CardView) findViewById(R.id.helpCardView);
         appInfoCardView = (CardView) findViewById(R.id.appInfoCardView);
 
         instructionsCardView.setOnClickListener(this);
+        newModelCardView.setOnClickListener(this);
+        modelSearchCardView.setOnClickListener(this);
         uploadImageCardView.setOnClickListener(this);
         helpCardView.setOnClickListener(this);
         appInfoCardView.setOnClickListener(this);
@@ -36,6 +41,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.instructionsCardView:
                 i = new Intent(this, Instructions.class);
+                startActivity(i);
+                break;
+
+            case R.id.newModelCardView:
+                i = new Intent(this, NewModel.class);
+                startActivity(i);
+                break;
+
+            case R.id.modelSearchCardView:
+                i = new Intent(this, ModelSearch.class);
                 startActivity(i);
                 break;
 

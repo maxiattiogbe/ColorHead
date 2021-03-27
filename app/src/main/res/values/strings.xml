@@ -20,7 +20,8 @@
 
     <string name="instructionsStr">Instructions</string>
     <string name="modelStatsStr">Model Statistics</string>
-    <string name="modelSearchStr">Search</string>
+    <string name="searchStr">Search</string>
+    <string name="modelSearchStr">Model Search</string>
     <string name="newModelStr">New Model</string>
     <string name="settingsStr">Settings</string>
     <string name="uploadImageStr">Upload Image</string>
@@ -55,6 +56,8 @@
     <string name="newModel_Descr_Str">Description:</string>
     <string name="newModel_IndVar_Str">Independent Variable: </string>
     <string name="newModel_NumOfDataPts_Str">Number of Data Points:</string>
+    <string name="newModel_Data_Str">Data:</string>
+    <string name="newModel_Import_Data_Str">Import Data</string>
     <string name="newModel_Red_Str">Red:</string>
     <string name="newModel_Green_Str">Green:</string>
     <string name="newModel_Blue_Str">Blue:</string>

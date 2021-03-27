@@ -165,7 +165,7 @@
                                 android:id="@+id/modelSearchTitleText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/modelSearchStr"
+                                android:text="@string/searchStr"
                                 android:textColor="@color/black"
                                 android:textSize="24sp"
                                 android:textStyle="bold"
@@ -224,7 +224,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="64dp"
                 android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/uploadImageLine">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
