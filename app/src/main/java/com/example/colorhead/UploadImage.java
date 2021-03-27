@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 public class UploadImage extends AppCompatActivity {
@@ -29,6 +35,7 @@ public class UploadImage extends AppCompatActivity {
     private ImageView imageView;
     private TextView textView;
     private Bitmap bitmap;
+  private ArrayList<Sample> data2 = new ArrayList<Sample>();
 
     private static final int IMAGE_PICK_CODE = 1000;
     private static final int PERMISSION_CODE = 1001;
@@ -37,7 +44,7 @@ public class UploadImage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_image);
-
+        readRGBData();
         uploadImageButton = (Button) findViewById(R.id.uploadImageButton);
         imageView = (ImageView) findViewById(R.id.uploadImageImageView);
         textView = (TextView) findViewById(R.id.resultText);
@@ -59,310 +66,38 @@ public class UploadImage extends AppCompatActivity {
 
                     Model pHModel = new Model();
 
-                    ArrayList<Double> coeff1 = new ArrayList<Double>();
-                    ArrayList<Double> coeff2 = new ArrayList<Double> ();
-                    ArrayList<Double> coeff3 = new ArrayList<Double> ();
+                     //Putting the data ArrayList into the model
+                    pHModel.setData(data2);
 
-                    // 01_01_2021_Copy_Experimental Data with Solutions.xlsx Data
-
-                    ArrayList<Sample> data = new ArrayList<Sample>();
-
-                    // Creating Samples from spreadsheet data
-                    Sample s1_1_1= new Sample("pH", 2.47, 208, 120, 66);
-                    Sample s1_1_2= new Sample("pH", 2.47, 209, 122, 68);
-                    Sample s1_1_3= new Sample("pH", 2.47, 211, 123, 68);
-                    Sample s1_2_1= new Sample("pH", 2.47, 219, 133, 74);
-                    Sample s1_2_2= new Sample("pH", 2.47, 221, 132, 73);
-                    Sample s1_2_3= new Sample("pH", 2.47, 219, 135, 79);
-                    Sample s1_3_1= new Sample("pH", 2.47, 211, 122, 70);
-                    Sample s1_3_2= new Sample("pH", 2.47, 213, 127, 73);
-                    Sample s1_3_3= new Sample("pH", 2.47, 209, 127, 74);
-                    Sample s2_1_1= new Sample("pH", 2.78, 205, 121, 65);
-                    Sample s2_1_2= new Sample("pH", 2.78, 206, 128, 73);
-                    Sample s2_1_3= new Sample("pH", 2.78, 208, 127, 70);
-                    Sample s2_2_1= new Sample("pH", 2.74, 204, 116, 62);
-                    Sample s2_2_2= new Sample("pH", 2.74, 204, 117, 64);
-                    Sample s2_2_3= new Sample("pH", 2.74, 200, 118, 68);
-                    Sample s2_3_1= new Sample("pH", 2.74, 203, 118, 63);
-                    Sample s2_3_2= new Sample("pH", 2.74, 202, 121, 67);
-                    Sample s2_3_3= new Sample("pH", 2.74, 203, 124, 68);
-                    Sample s3_1_1= new Sample("pH", 3.33, 203, 139, 70);
-                    Sample s3_1_2= new Sample("pH", 3.33, 203, 137, 68);
-                    Sample s3_1_3= new Sample("pH", 3.33, 205, 140, 69);
-                    Sample s3_2_1= new Sample("pH", 3.36, 203, 123, 58);
-                    Sample s3_2_2= new Sample("pH", 3.36, 200, 124, 60);
-                    Sample s3_2_3= new Sample("pH", 3.36, 201, 129, 67);
-                    Sample s3_3_1= new Sample("pH", 3.33, 199, 123, 55);
-                    Sample s3_3_2= new Sample("pH", 3.33, 195, 123, 58);
-                    Sample s3_3_3= new Sample("pH", 3.33, 199, 127, 60);
-                    Sample s4_1_1= new Sample("pH", 4.32, 198, 156, 59);
-                    Sample s4_1_2= new Sample("pH", 4.32, 202, 162, 61);
-                    Sample s4_1_3= new Sample("pH", 4.32, 201, 160, 63);
-                    Sample s4_2_1= new Sample("pH", 4.35, 197, 153, 55);
-                    Sample s4_2_2= new Sample("pH", 4.35, 195, 153, 58);
-                    Sample s4_2_3= new Sample("pH", 4.35, 193, 153, 61);
-                    Sample s4_3_1= new Sample("pH", 4.32, 200, 173, 71);
-                    Sample s4_3_2= new Sample("pH", 4.32, 198, 167, 70);
-                    Sample s4_3_3= new Sample("pH", 4.32, 199, 164, 68);
-                    Sample s5_1_1= new Sample("pH", 6.51, 181, 156, 56);
-                    Sample s5_1_2= new Sample("pH", 6.51, 182, 157, 54);
-                    Sample s5_1_3= new Sample("pH", 6.51, 182, 157, 55);
-                    Sample s5_2_1= new Sample("pH", 6.54, 191, 156, 51);
-                    Sample s5_2_2= new Sample("pH", 6.54, 191, 158, 52);
-                    Sample s5_2_3= new Sample("pH", 6.54, 189, 161, 58);
-                    Sample s5_3_1= new Sample("pH", 6.57, 190, 158, 53);
-                    Sample s5_3_2= new Sample("pH", 6.57, 186, 153, 51);
-                    Sample s5_3_3= new Sample("pH", 6.57, 192, 158, 54);
-                    Sample s6_1_1= new Sample("pH", 7.24, 172, 155, 50);
-                    Sample s6_1_2= new Sample("pH", 7.24, 175, 151, 38);
-                    Sample s6_1_3= new Sample("pH", 7.24, 185, 156, 45);
-                    Sample s6_2_1= new Sample("pH", 7.31, 194, 161, 31);
-                    Sample s6_2_2= new Sample("pH", 7.31, 189, 159, 31);
-                    Sample s6_2_3= new Sample("pH", 7.31, 188, 157, 30);
-                    Sample s6_3_1= new Sample("pH", 7.28, 187, 162, 37);
-                    Sample s6_3_2= new Sample("pH", 7.28, 186, 162, 35);
-                    Sample s6_3_3= new Sample("pH", 7.28, 186, 162, 37);
-                    Sample s7_1_1= new Sample("pH", 7.35, 190, 162, 48);
-                    Sample s7_1_2= new Sample("pH", 7.35, 184, 157, 49);
-                    Sample s7_1_3= new Sample("pH", 7.35, 181, 160, 51);
-                    Sample s7_2_1= new Sample("pH", 7.45, 198, 170, 59);
-                    Sample s7_2_2= new Sample("pH", 7.45, 200, 167, 56);
-                    Sample s7_2_3= new Sample("pH", 7.45, 200, 169, 60);
-                    Sample s7_3_1= new Sample("pH", 7.24, 170, 151, 45);
-                    Sample s7_3_2= new Sample("pH", 7.24, 170, 151, 49);
-                    Sample s7_3_3= new Sample("pH", 7.24, 173, 157, 53);
-                    Sample s8_1_1= new Sample("pH", 7.38, 184, 174, 66);
-                    Sample s8_1_2= new Sample("pH", 7.38, 185, 171, 69);
-                    Sample s8_1_3= new Sample("pH", 7.38, 182, 172, 73);
-                    Sample s8_2_1= new Sample("pH", 7.38, 187, 162, 69);
-                    Sample s8_2_2= new Sample("pH", 7.38, 185, 165, 67);
-                    Sample s8_2_3= new Sample("pH", 7.38, 186, 166, 67);
-                    Sample s8_3_1= new Sample("pH", 7.35, 159, 154, 53);
-                    Sample s8_3_2= new Sample("pH", 7.35, 163, 155, 55);
-                    Sample s8_3_3= new Sample("pH", 7.35, 169, 157, 55);
-                    Sample s9_1_1= new Sample("pH", 8.04, 81, 120, 63);
-                    Sample s9_1_2= new Sample("pH", 8.04, 78, 114, 68);
-                    Sample s9_1_3= new Sample("pH", 8.04, 78, 115, 70);
-                    Sample s9_2_1= new Sample("pH", 7.97, 89, 126, 71);
-                    Sample s9_2_2= new Sample("pH", 7.97, 81, 122, 76);
-                    Sample s9_2_3= new Sample("pH", 7.97, 78, 119, 78);
-                    Sample s9_3_1= new Sample("pH", 8, 90, 129, 71);
-                    Sample s9_3_2= new Sample("pH", 8, 80, 123, 73);
-                    Sample s9_3_3= new Sample("pH", 8, 77, 120, 74);
-                    Sample s10_1_1= new Sample("pH", 8.52, 66, 117, 74);
-                    Sample s10_1_2= new Sample("pH", 8.52, 67, 114, 77);
-                    Sample s10_1_3= new Sample("pH", 8.52, 68, 115, 77);
-                    Sample s10_2_1= new Sample("pH", 8.49, 75, 123, 71);
-                    Sample s10_2_2= new Sample("pH", 8.49, 77, 124, 76);
-                    Sample s10_2_3= new Sample("pH", 8.49, 73, 121, 75);
-                    Sample s10_3_1= new Sample("pH", 8.49, 69, 119, 79);
-                    Sample s10_3_2= new Sample("pH", 8.49, 55, 121, 81);
-                    Sample s10_3_3= new Sample("pH", 8.49, 71, 122, 83);
-                    Sample s11_1_1= new Sample("pH", 8.77, 58, 106, 74);
-                    Sample s11_1_2= new Sample("pH", 8.77, 60, 108, 76);
-                    Sample s11_1_3= new Sample("pH", 8.77, 48, 102, 63);
-                    Sample s11_2_1= new Sample("pH", 8.73, 53, 103, 69);
-                    Sample s11_2_2= new Sample("pH", 8.73, 56, 105, 73);
-                    Sample s11_2_3= new Sample("pH", 8.73, 55, 104, 73);
-                    Sample s11_3_1= new Sample("pH", 8.73, 56, 104, 70);
-                    Sample s11_3_2= new Sample("pH", 8.73, 56, 105, 71);
-                    Sample s11_3_3= new Sample("pH", 8.73, 58, 108, 73);
-
-
-                    //Adding Samples to the data ArrayList
-
-                    //Solution 1
-                    // Trial 1
-                    data.add(s1_1_1);
-                    data.add(s1_1_2);
-                    data.add(s1_1_3);
-
-                    // Trial 2
-                    data.add(s1_2_1);
-                    data.add(s1_2_2);
-                    data.add(s1_2_3);
-
-                    // Trial 3
-                    data.add(s1_3_1);
-                    data.add(s1_3_2);
-                    data.add(s1_3_3);
-
-
-                    //Solution 2
-                    // Trial 1
-                    data.add(s2_1_1);
-                    data.add(s2_1_2);
-                    data.add(s2_1_3);
-
-                    // Trial 2
-                    data.add(s2_2_1);
-                    data.add(s2_2_2);
-                    data.add(s2_2_3);
-
-                    // Trial 3
-                    data.add(s2_3_1);
-                    data.add(s2_3_2);
-                    data.add(s2_3_3);
-
-
-                    //Solution 3
-                    // Trial 1
-                    data.add(s3_1_1);
-                    data.add(s3_1_2);
-                    data.add(s3_1_3);
-
-                    // Trial 2
-                    data.add(s3_2_1);
-                    data.add(s3_2_2);
-                    data.add(s3_2_3);
-
-                    // Trial 3
-                    data.add(s3_3_1);
-                    data.add(s3_3_2);
-                    data.add(s3_3_3);
-
-
-                    //Solution 4
-                    // Trial 1
-                    data.add(s4_1_1);
-                    data.add(s4_1_2);
-                    data.add(s4_1_3);
-
-                    // Trial 2
-                    data.add(s4_2_1);
-                    data.add(s4_2_2);
-                    data.add(s4_2_3);
-
-                    // Trial 3
-                    data.add(s4_3_1);
-                    data.add(s4_3_2);
-                    data.add(s4_3_3);
-
-
-                    //Solution 5
-                    // Trial 1
-                    data.add(s5_1_1);
-                    data.add(s5_1_2);
-                    data.add(s5_1_3);
-
-                    // Trial 2
-                    data.add(s5_2_1);
-                    data.add(s5_2_2);
-                    data.add(s5_2_3);
-
-                    // Trial 3
-                    data.add(s5_3_1);
-                    data.add(s5_3_2);
-                    data.add(s5_3_3);
-
-
-                    //Solution 6
-                    // Trial 1
-                    data.add(s6_1_1);
-                    data.add(s6_1_2);
-                    data.add(s6_1_3);
-
-                    // Trial 2
-                    data.add(s6_2_1);
-                    data.add(s6_2_2);
-                    data.add(s6_2_3);
-
-                    // Trial 3
-                    data.add(s6_3_1);
-                    data.add(s6_3_2);
-                    data.add(s6_3_3);
-
-
-                    //Solution 7
-                    // Trial 1
-                    data.add(s7_1_1);
-                    data.add(s7_1_2);
-                    data.add(s7_1_3);
-
-                    // Trial 2
-                    data.add(s7_2_1);
-                    data.add(s7_2_2);
-                    data.add(s7_2_3);
-
-                    // Trial 3
-                    data.add(s7_3_1);
-                    data.add(s7_3_2);
-                    data.add(s7_3_3);
-
-                    //Solution 8
-                    // Trial 1
-                    data.add(s8_1_1);
-                    data.add(s8_1_2);
-                    data.add(s8_1_3);
-
-                    // Trial 2
-                    data.add(s8_2_1);
-                    data.add(s8_2_2);
-                    data.add(s8_2_3);
-
-                    // Trial 3
-                    data.add(s8_3_1);
-                    data.add(s8_3_2);
-                    data.add(s8_3_3);
-
-                    //Solution 9
-                    // Trial 1
-                    data.add(s9_1_1);
-                    data.add(s9_1_2);
-                    data.add(s9_1_3);
-
-                    // Trial 2
-                    data.add(s9_2_1);
-                    data.add(s9_2_2);
-                    data.add(s9_2_3);
-
-                    // Trial 3
-                    data.add(s9_3_1);
-                    data.add(s9_3_2);
-                    data.add(s9_3_3);
-
-
-                    //Solution 10
-                    // Trial 1
-                    data.add(s10_1_1);
-                    data.add(s10_1_2);
-                    data.add(s10_1_3);
-
-                    // Trial 2
-                    data.add(s10_2_1);
-                    data.add(s10_2_2);
-                    data.add(s10_2_3);
-
-                    // Trial 3
-                    data.add(s10_3_1);
-                    data.add(s10_3_2);
-                    data.add(s10_3_3);
-
-                    //Solution 11
-                    // Trial 1
-                    data.add(s11_1_1);
-                    data.add(s11_1_2);
-                    data.add(s11_1_3);
-
-                    // Trial 2
-                    data.add(s11_2_1);
-                    data.add(s11_2_2);
-                    data.add(s11_2_3);
-
-                    // Trial 3
-                    data.add(s11_3_1);
-                    data.add(s11_3_2);
-                    data.add(s11_3_3);
-
-
-                    //Putting the data ArrayList into the model
-                    pHModel.setData(data);
-
-                    //Fit cubic polynomials (one each for red, green, and blue color intensities) to the data
+                    //Fit cubic (degree 3) polynomials (one each for red, green, and blue color intensities) to the data
                     pHModel.fitData(3,0,14);
-                    double pH = pHModel.estimate(r,g,b,0,14);
 
-                    textView.setText("Estimated pH = " + pH);
+                    //Alternative multivariable polynomial fit from Microsoft Excel Regression
+                  ArrayList<String> varListTest2 = new ArrayList<String>();
+                  varListTest2.add("R"); // red value variable
+                  varListTest2.add("G"); // green value variable
+                  varListTest2.add("B"); // blue value variable
+
+                  ArrayList<Double> coeffTest2 = new ArrayList<Double>();
+                  coeffTest2.add(8.8863758); // constant term
+                  coeffTest2.add(-0.048618192); // R coefficient
+                  coeffTest2.add(0.061236249); // G coefficient
+                  coeffTest2.add(-0.05633453); // B coefficient
+
+                  ArrayList<Double> varValsTest2 = new ArrayList<Double>();
+                  varValsTest2.add((double)r);
+                  varValsTest2.add((double)g);
+                  varValsTest2.add((double)b);
+
+                  pHModel.getMultiVarPoly().setVarList(varListTest2);
+                  pHModel.getMultiVarPoly().setCoefficients(coeffTest2);
+
+                  // pH estimate from solving a system of three cubic equations
+                  //double pH = pHModel.estimate(r,g,b,0,14);
+
+                  // pH estimate from plugging R,G,B values from the selected pixel into the multivariable polynomial
+                  double pH = pHModel.getMultiVarPoly().evaluate(varValsTest2);
+                    textView.setText("Estimated pH = " + Math.round(pH*100.0)/100.0); // round pH to two decimal places
                 }
                 return true;
             }
@@ -392,6 +127,34 @@ public class UploadImage extends AppCompatActivity {
         });
     }
 
+  //Based on info from: https://stackoverflow.com/a/19976110
+  private void readRGBData(){
+    InputStream is = getResources().openRawResource(R.raw.raw_vinegar_and_ammonia_training_data);
+    BufferedReader reader = new BufferedReader(
+            new InputStreamReader(is, Charset.forName("UTF-8"))
+    );
+
+    String line = "";
+    try {
+      //Step over headers
+      reader.readLine();
+
+      while ( (line = reader.readLine()) != null) {
+        //Split by ','
+        String[] tokens = line.split(",");
+
+        //Read the data
+        Sample dataSample = new Sample("pH", Double.parseDouble(tokens[3]),Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
+        data2.add(dataSample);
+
+        Log.d("MyActivity", "Just created: " + dataSample.print());
+      }
+    } catch (IOException e) {
+      Log.wtf("MyActivity", "Error reading data file on line" + line, e);
+      e.printStackTrace();
+    }
+  }
+
   private void pickImageFromGallery() {
       //intent to pick image
       Intent intent = new Intent(Intent.ACTION_PICK);
@@ -400,8 +163,6 @@ public class UploadImage extends AppCompatActivity {
   }
 
   //handle the result of runtime permissions
-
-
   @Override
   public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
     switch(requestCode){
@@ -426,6 +187,5 @@ public class UploadImage extends AppCompatActivity {
       imageView.setImageURI(data.getData());
     }
   }
-
 
 }

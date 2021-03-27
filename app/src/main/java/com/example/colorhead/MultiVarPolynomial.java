@@ -12,7 +12,7 @@ public class MultiVarPolynomial extends Polynomial {
 
 	//Data 
 	ArrayList<String> varList;
-	
+
 	//Constructors
 	/**
 	 * Default constructor
@@ -23,17 +23,17 @@ public class MultiVarPolynomial extends Polynomial {
 	}
 
 	//Methods
-	
+
 	public double evaluate(ArrayList<Double> varValues) {
-		 double sum = this.getCoefficients().get(0);
-	     
-		 for (int i = 0; i < varValues.size(); i ++) {
-			 for (int j = 1; j <= (this.getCoefficients().size() - 1)/varValues.size(); j++ ){
-			        sum += this.getCoefficients().get((i+1) + varValues.size()*(j-1)) * Math.pow(varValues.get(i), j);
-			 }
-		 }
-		    
-		    return sum;
+		double sum = this.getCoefficients().get(0);
+
+		for (int i = 0; i < varValues.size(); i ++) {
+			for (int j = 1; j <= (this.getCoefficients().size() - 1)/varValues.size(); j++ ){
+				sum += this.getCoefficients().get((i+1) + varValues.size()*(j-1)) * Math.pow(varValues.get(i), j);
+			}
+		}
+
+		return sum;
 	}
 
 
@@ -41,20 +41,20 @@ public class MultiVarPolynomial extends Polynomial {
 	public String print() {
 		String str = "";
 		int coeffNum;
-		
+
 		if(this.getCoefficients().size() != 1 && (this.getCoefficients().size()-1) % varList.size() != 0) {
 			return str += "ERROR - This polynomial does not have a valid number of terms.";
 		}
-		
+
 		if(this.getCoefficients().size() == 1) { // if the polynomial is only a constant term
 			return str+= this.getCoefficients().get(0);
 		}
 		//start with the constant term
-		str+= this.getCoefficients().get(0) + " + "; 
-		
+		str+= this.getCoefficients().get(0) + " + ";
+
 		int exponent = 1;
 		// add the remaining terms before the highest degree terms
-		for (int i = 1; i < this.getCoefficients().size() - varList.size(); i+= varList.size()) { 
+		for (int i = 1; i < this.getCoefficients().size() - varList.size(); i+= varList.size()) {
 			coeffNum = i;
 			for (int j = 0; j < varList.size(); j++) {
 				if(exponent == 1)
@@ -65,9 +65,9 @@ public class MultiVarPolynomial extends Polynomial {
 			}
 			exponent++;
 		}
-		
+
 		coeffNum = this.coefficients.size() - varList.size();
-		
+
 		//add the highest degree terms except the last one
 		for (int i = 0; i < varList.size() - 1; i++) {
 			if((this.getCoefficients().size() - 1)/varList.size() == 1)
@@ -76,13 +76,13 @@ public class MultiVarPolynomial extends Polynomial {
 				str += this.getCoefficients().get(coeffNum) + "*" + varList.get(i) + "^" + (this.getCoefficients().size() - 1)/varList.size() + " + ";
 			coeffNum++;
 		}
-	
+
 		// add the last term
 		if((this.getCoefficients().size() - 1)/varList.size() == 1)
 			str += this.getCoefficients().get(this.getCoefficients().size() - 1) + "*" + varList.get(varList.size() - 1);
 		if((this.getCoefficients().size() - 1)/varList.size() > 1)
 			str += this.getCoefficients().get(this.getCoefficients().size() - 1) + "*" + varList.get(varList.size() - 1) + "^" + (this.getCoefficients().size() - 1)/varList.size();
-		
+
 		return str;
 	}
 
@@ -93,7 +93,6 @@ public class MultiVarPolynomial extends Polynomial {
 	public void setVarList(ArrayList<String> varList) {
 		this.varList = varList;
 	}
-	
-	
-}
 
+
+}

@@ -108,7 +108,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/resultsTitleStr"
                 android:textAlignment="center"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -117,7 +118,11 @@
             <TextView
                 android:id="@+id/resultText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"

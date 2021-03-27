@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+/**
+ * To be implemented later
+ */
 public class ModelSearch extends AppCompatActivity {
 
     @Override
