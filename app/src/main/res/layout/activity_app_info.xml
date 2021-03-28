@@ -37,11 +37,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp" />
 
-            <TextView
-                android:id="@+id/appInfoPurposeText"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/appInfo_purpose_Str" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/appInfoPurposeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/appInfo_purpose_Str"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Space
                 android:layout_width="match_parent"

@@ -76,8 +76,9 @@
 
     <!-- Upload Image -->
     <string name="upload_Before_Str">Click the Upload button below to choose an image to upload.
-        Once your image is properly uploaded, it should appear below. Press your finger down on the image on the
-        colored region of interest to obtain a corresponding reading estimate.</string>
+        Once your image is properly uploaded, it should appear below. Tap and/or drag your finger on the image on the
+        colored region of interest to obtain a corresponding reading estimate. If you feel the estimate is inaccurate
+        go back to the home screen dashboard and go to Help.</string>
     <string name="upload_See_Image_Str">Once your image is properly uploaded, it should appear here.</string>
     <string name="uploadStr">Upload</string>
     <string name="goStr">Go</string>
@@ -85,29 +86,27 @@
 
 
     <!-- Help -->
-    <string name="help_InaccurateEstimate_Str">This estimate seems inaccurate. What should I do?</string>
-    <string name="help_IfCamera_Str">If you are using your camera... </string>
-    <string name="help_AdjustLight_Str">- Try adjusting ambient lighting. </string>
-    <string name="help_EnsureFill_Str">- Ensure the indicator or sensor color fills the central square in the camera view. </string>
+    <string name="help_InaccurateEstimate_Str">The estimate ColorHead is giving seems inaccurate. What should I do?</string>
+    <string name="help_IfTakingPicture_Str">If you are currently taking a picture using your camera... </string>
+    <string name="help_AdjustLight_Str">- Try adjusting ambient lighting and your camera settings. </string>
+    <string name="help_EnsureFill_Str">- Ensure the indicator or sensor color fills as much of the picture as possible. Zoom in if needed. </string>
     <string name="help_TryUpload_Str">- Try uploading an image instead using your camera.</string>
-    <string name="help_IfUpload_Str">If you are uploading an image...</string>
+    <string name="help_IfUpload_Str">If you are only uploading an image...</string>
     <string name="help_EnsureCrop_Str">- Ensure it is cropped so the sensor or indicator color fills as
         much of the image as possible</string>
-    <string name="help_TryUploadAgain_Str">- Try taking another picture and uploading again.lMake sure
-        you are using an applicable model.</string>
+    <string name="help_TryUploadAgain_Str">- Try taking another picture (see the above section of this page) and uploading again.</string>
     <string name="help_TryMoreAppropriateOrAccurate_Str">- Try using a more appropriate and/or accurate model.</string>
     <string name="help_NewUser_Str">What should I do if I am a new user or forgot how to do something?</string>
-    <string name="help_GoToInstructions_Str"> - Go to Instructions using the navigation menu on the left
-        side of the toolbar above. </string>
+    <string name="help_GoToInstructions_Str"> - Go to Instructions from the home screen dashboard. </string>
 
     <!-- App Information -->
     <string name="appInfo_made_Str">This app was primarily made using Android Studio but many of
         Color\'s Java classes were originally written in Eclipse except for some classes relating to
         matrices and matrix operations obtained from Github. Various YouTube tutorials were also used
         as necessary during the app development.</string>
-    <string name="appInfo_purpose_Str">The purpose of Color is to accurately translate the color of
-        a sensor or indicator to a desired quantitative value such as ph or concentration. </string>
-    <string name="appInfo_PossibleUpdates_Str">Color may experience future updates to improve its
+    <string name="appInfo_purpose_Str">The purpose of ColorHead is to accurately translate the color of
+        a sensor or indicator to a desired quantitative value such as pH or concentration. </string>
+    <string name="appInfo_PossibleUpdates_Str">ColorHead may experience future updates to improve its
         accuracy and user experience. Possible updates include</string>
     <string name="appInfo_PossibleUpdate1_Str">Adding a virtual assistant possibly with voice
         activation and speaking abilities to guide users through the app or operate the app and read
