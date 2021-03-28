@@ -29,27 +29,28 @@
     <string name="backStr">Home</string>
 
     <!-- Instructions -->
-    <string name="instr_NavMenu_Str">Use the navigation menu in the top left side of the toolbar for the following.</string>
-    <string name="instr_Instr_Str">- Return to this page for instructions on how to use Color.</string>
-    <string name="instr_NewModel_Str">- Make a new mathematical model for Color.</string>
-    <string name="instr_Model_Str">- View one or more mathematical models available for Color to use.
+    <string name="instr_Top_Str">Read the following for a summary of the purpose of each page accessible
+        from the home screen dashboard. Visit the corresponding page for more detailed instructions or information.</string>
+    <string name="instr_Instr_Str">- Return to this page for a ColorHead instructions summary.</string>
+    <string name="instr_NewModel_Str">- Make a new mathematical model for ColorHead.</string>
+    <string name="instr_Model_Str">- View one or more mathematical models available for ColorHead to use.
         Please either select one or go to New Model to make a new one.</string>
-    <string name="instr_Camera_Str">- Here is where Color can access your smartphone camera to obtain
+    <string name="instr_Camera_Str">- Here is where ColorHead can access your smartphone camera to obtain
         red, green, and blue color intensities of a sensor or indicator. Color will then use these
         color intensities to estimate the desired quantitative value. Please follow the instructions
-        given on this page if you want Color to use your smartphone camera. If you feel the estimate is
+        given on this page if you want ColorHead to use your smartphone camera. If you feel the estimate is
         inaccurate, see Help.</string>
-    <string name="instr_Upload_Image_Str">- Here is where Color can obtain red, green, or blue color
-        intensities from a sensor or indicator in an uploaded image. Color will then use these color
+    <string name="instr_Upload_Image_Str">- Here is where ColorHead can obtain red, green, or blue color
+        intensities from a sensor or indicator in an uploaded image. ColorHead will then use these color
         intensities to estimate the desired quantitative value. Please follow the instructions given
-        on this page if you want Color to use an uploaded image. If you feel the estimate is inaccurate, see Help.</string>
+        on this page if you want ColorHead to use an uploaded image. If you feel the estimate is inaccurate, see Help.</string>
     <string name="instr_OverflowMenu_Str">Use the overflow menu on the right side of the toolbar
         above for the following.</string>
     <string name="instr_Help1_Str">- Troubleshooting tips for inaccurate estimates</string>
     <string name="instr_Help2_Str">- Reminder to read or reread Instructions (this page) if you are
-        new or stuck at any point in using Color</string>
-    <string name="instr_AppInfo1_Str">- Information about how Color was made</string>
-    <string name="instr_AppInfo2_Str">- Information on the purpose of Color and the possibility of future updates.</string>
+        new or stuck at any point in using ColorHead</string>
+    <string name="instr_AppInfo1_Str">- Information about how ColorHead was made</string>
+    <string name="instr_AppInfo2_Str">- Information on the purpose of ColorHead and the possibility of future updates.</string>
 
     <!-- New Models -->
     <string name="newModel_FillOut_Str">Fill out the text fields below to get started with a new model.</string>
