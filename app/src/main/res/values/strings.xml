@@ -71,8 +71,8 @@
 
     <!-- Camera -->
     <string name="camera_Ensure_Str"> First, please click the button below that says camera
-        so Color can access your phone camera. Then, ensure the sensor or indicator color fills the central square. </string>
-    <string name="camera_See_Str">Once Color has access to your phone camera you should see your camera view here. </string>
+        so ColorHead can access your phone camera. Then, ensure the sensor or indicator color fills the central square. </string>
+    <string name="camera_See_Str">Once ColorHead has access to your phone camera you should see your camera view here. </string>
 
     <!-- Upload Image -->
     <string name="upload_Before_Str">Click the Upload button below to choose an image to upload.
@@ -93,7 +93,7 @@
     <string name="help_TryUpload_Str">- Try uploading an image instead using your camera.</string>
     <string name="help_IfUpload_Str">If you are only uploading an image...</string>
     <string name="help_EnsureCrop_Str">- Ensure it is cropped so the sensor or indicator color fills as
-        much of the image as possible</string>
+        much of the image as possible.</string>
     <string name="help_TryUploadAgain_Str">- Try taking another picture (see the above section of this page) and uploading again.</string>
     <string name="help_TryMoreAppropriateOrAccurate_Str">- Try using a more appropriate and/or accurate model.</string>
     <string name="help_NewUser_Str">What should I do if I am a new user or forgot how to do something?</string>
@@ -104,7 +104,7 @@
     <string name="appInfo_purpose_Str">The purpose of ColorHead is to accurately translate the color of
         a sensor or indicator to a desired quantitative value such as pH or concentration. </string>
 
-    <string name="appInfo_made_Title_Str">How it Was Made</string>
+    <string name="appInfo_made_Title_Str">How ColorHead Was Made</string>
     <string name="appInfo_made_Str">This app was primarily made using Android Studio but many of
         the Java classes ColorHead uses were originally written in Eclipse except for some classes relating to
         matrices and matrix operations obtained from Github. Various YouTube tutorials were also used
@@ -116,10 +116,12 @@
     <string name="appInfo_PossibleUpdate1_Str">- Adding a virtual assistant possibly with voice
         activation and speaking abilities to guide users through the app or operate the app and read
         estimates of the desired quantitative value aloud for visually impaired users.</string>
-    <string name="appInfo_PossibleUpdate2_Str">- Adding more flexible mathematical modeling options </string>
+    <string name="appInfo_PossibleUpdate2_Str">- Adding capabilities for ColorHead to allow users to upload their own
+        CSV files of data to make new mathematical models and upload them along with descriptions to a Firebase database searchable
+        via a search page on the app where users can search for an suitable model and see its performance statistics.</string>
     <string name="appInfo_PossibleUpdate3_0_Str">- Making ColorHead capable of...</string>
-    <string name="appInfo_PossibleUpdate3_1_Str">- Automatically adjusting the position of the central
-        square in the camera view</string>
-    <string name="appInfo_PossibleUpdate3_2_Str">- Appropriately cropping images itself</string>
+    <string name="appInfo_PossibleUpdate3_1_Str">- Obtaining RGB values live from the camera</string>
+    <string name="appInfo_PossibleUpdate3_2_Str">- Having a square or circular marker users can use their finger to move precisely
+        to the location where they want ColorHead to take a color reading and produce a corresponding quantitative value estimate</string>
 
 </resources>

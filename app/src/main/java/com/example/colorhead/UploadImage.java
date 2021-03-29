@@ -78,6 +78,7 @@ public class UploadImage extends AppCompatActivity {
                   varListTest2.add("G"); // green value variable
                   varListTest2.add("B"); // blue value variable
 
+                  //Regression coefficients from Microsoft Excel
                   ArrayList<Double> coeffTest2 = new ArrayList<Double>();
                   coeffTest2.add(8.8863758); // constant term
                   coeffTest2.add(-0.048618192); // R coefficient
