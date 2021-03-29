@@ -49,7 +49,7 @@
                         android:text="@string/instr_Top_Str"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
+                        android:textStyle="italic"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
