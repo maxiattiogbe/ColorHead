@@ -78,12 +78,18 @@ public class UploadImage extends AppCompatActivity {
                   varListTest2.add("G"); // green value variable
                   varListTest2.add("B"); // blue value variable
 
-                  //Regression coefficients from Microsoft Excel
+                  //Regression coefficients for the multivariable polynomial from Microsoft Excel
                   ArrayList<Double> coeffTest2 = new ArrayList<Double>();
-                  coeffTest2.add(8.8863758); // constant term
-                  coeffTest2.add(-0.048618192); // R coefficient
-                  coeffTest2.add(0.061236249); // G coefficient
-                  coeffTest2.add(-0.05633453); // B coefficient
+                  coeffTest2.add(-198.045311318302); // constant term
+                  coeffTest2.add(2.17627486712809); // R coefficient
+                  coeffTest2.add(2.10380171941283); // G coefficient
+                  coeffTest2.add(11.9634149897704); // B coefficient
+                    coeffTest2.add(-0.0258637693348945); // R^2 coefficient
+                    coeffTest2.add(-0.0321493521606848); // G^2 coefficient
+                    coeffTest2.add(-0.363921919355892); // B^2 coefficient
+                    coeffTest2.add(0.0000896326805410205); // R^3 coefficient
+                    coeffTest2.add(0.000150423905832181); // G^3 coefficient
+                    coeffTest2.add(0.00341357541491426); // B^3 coefficient
 
                   ArrayList<Double> varValsTest2 = new ArrayList<Double>();
                   varValsTest2.add((double)r);
@@ -96,7 +102,7 @@ public class UploadImage extends AppCompatActivity {
                   // pH estimate from solving a system of three cubic equations
                   //double pH = pHModel.estimate(r,g,b,0,14);
 
-                  // pH estimate from plugging R,G,B values from the selected pixel into the multivariable polynomial
+                  // pH estimate from directly plugging R,G,B values from the selected pixel into the multivariable polynomial
                   double pH = pHModel.getMultiVarPoly().evaluate(varValsTest2);
                     textView.setText("Estimated pH = " + Math.round(pH*100.0)/100.0); // round pH to two decimal places
                 }
@@ -130,7 +136,7 @@ public class UploadImage extends AppCompatActivity {
 
   //Based on info from: https://stackoverflow.com/a/19976110
   private void readRGBData(){
-    InputStream is = getResources().openRawResource(R.raw.raw_vinegar_and_ammonia_training_data);
+    InputStream is = getResources().openRawResource(R.raw.raw_v_and_a_training_data); //open file
     BufferedReader reader = new BufferedReader(
             new InputStreamReader(is, Charset.forName("UTF-8"))
     );
